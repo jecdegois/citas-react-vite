@@ -3,7 +3,7 @@ import Error from "./Error";
 
 const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
   const [nombre, setNombre] = useState("");
-  const [propietario, setPropietario] = useState("");
+  const [terapeuta, setTerapeuta] = useState("");
   const [email, setEmail] = useState("");
   const [fecha, setFecha] = useState("");
   const [sintomas, setSintomas] = useState("");
@@ -13,7 +13,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
   useEffect(() => {
     if (Object.keys(paciente).length > 0) {
       setNombre(paciente.nombre);
-      setPropietario(paciente.propietario);
+      setTerapeuta(paciente.terapeuta);
       setEmail(paciente.email);
       setFecha(paciente.fecha);
       setSintomas(paciente.sintomas);
@@ -30,7 +30,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
     e.preventDefault();
     //Validacion de el Form
 
-    if ([nombre, propietario, email, fecha, sintomas].includes("")) {
+    if ([nombre, terapeuta, email, fecha, sintomas].includes("")) {
       console.log("Todos los campos son necesarios");
       setError(true);
       return;
@@ -42,7 +42,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
 
     const objetoPaciente = {
       nombre,
-      propietario,
+      terapeuta,
       email,
       fecha,
       sintomas,
@@ -66,7 +66,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
 
     //Reiniciar el form
     setNombre("");
-    setPropietario("");
+    setTerapeuta("");
     setEmail("");
     setFecha("");
     setSintomas("");
@@ -86,36 +86,36 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
         {error && <Error mensaje="Todos los campos son obligatorios" />}
         <div className="mb-5">
           <label
-            htmlFor="mascota"
+            htmlFor="paciente"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Mascota
+            Nombre del paciente
           </label>
           <input
             className="rounded-xl border-2 w-full p-2 mt-2 placeholder-gray-400"
             type="text"
             name=""
-            id="mascota"
-            placeholder="Nombre de la Mascota"
+            id="paciente"
+            placeholder="Nombre del paciente"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
         </div>
         <div className="mb-5">
           <label
-            htmlFor="propietario"
+            htmlFor="terapeuta"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Propietario
+            Nombre del Terapeuta
           </label>
           <input
             className="rounded-xl border-2 w-full p-2 mt-2 placeholder-gray-400"
             type="text"
             name=""
-            id="propietario"
-            placeholder="Nombre del Propietario"
-            value={propietario}
-            onChange={(e) => setPropietario(e.target.value)}
+            id="terapeuta"
+            placeholder="Nombre del Terapeuta"
+            value={terapeuta}
+            onChange={(e) => setTerapeuta(e.target.value)}
           />
         </div>
         <div className="mb-5">
@@ -140,13 +140,13 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
             htmlFor="alta"
             className="block text-gray-700 uppercase font-bold"
           >
-            Alta
+            ingreso
           </label>
           <input
             className="rounded-xl border-2 w-full p-2 mt-2 placeholder-gray-400"
             type="date"
             name=""
-            id="alta"
+            id="ingreso"
             value={fecha}
             onChange={(e) => setFecha(e.target.value)}
           />

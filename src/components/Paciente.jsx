@@ -1,7 +1,7 @@
 
 
 const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
-  const { nombre, propietario, email, fecha, sintomas, id } = paciente;
+  const { nombre, terapeuta, email, fecha, sintomas, id } = paciente;
 
   const handleEliminar = () =>{
     const respuesta = confirm('Deseas eliminar el paciente?');
@@ -18,7 +18,7 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Propietario:{" "}
-        <span className="font-normal normal-case">{propietario}</span>
+        <span className="font-normal normal-case">{terapeuta}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Email: <span className="font-normal normal-case">{email}</span>
